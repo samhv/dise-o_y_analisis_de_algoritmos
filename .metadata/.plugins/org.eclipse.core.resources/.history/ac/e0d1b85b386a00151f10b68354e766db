@@ -29,7 +29,6 @@ public class FuerzaBruta extends TextSearcher {
 		        	 alignedAt++;
 		         }else if( x != y){
 		        	 alignedAt = indexInText + 1; 
-		        	 break;  
 		         }
 			}
 			
@@ -37,6 +36,4 @@ public class FuerzaBruta extends TextSearcher {
 		
 		return cantidad;
 	}
-	
-	
 }
