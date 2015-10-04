@@ -1,0 +1,28 @@
+package algoritmos;
+
+public class FuerzaBruta extends TextSearcher {
+	
+	public FuerzaBruta(){
+		
+	}
+
+	@Override
+	protected int search(String pattern, String text) {
+		
+		int cantidad = 0;
+		int control = 0;
+		int m = text.length();  
+        int n = pattern.length();  
+        
+		while(alignedAt + (n - 1) < m){
+			
+			for (int indexInPattern = 0; indexInPattern < n ; indexInPattern++) { 
+				int indexInText = control + indexInPattern;  
+				 if (indexInText >= m) break;  
+			}
+			
+		}
+		
+		return cantidad;
+	}
+}

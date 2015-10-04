@@ -9,6 +9,9 @@ import java.nio.file.Paths;
 import java.util.Hashtable;
 import java.util.Random;
 
+import algoritmos.BoyerMooreV2;
+import algoritmos.FuerzaBruta;
+import algoritmos.KnuthMorrisPrattV2;
 import algoritmos.TextSearcher;
 
 public class Main {
@@ -22,9 +25,9 @@ public class Main {
 		String lenguaje_natural_real_path = "InglesReal";
 		String lenguaje_natural_sintetico_path = "InglesSintetico";
 		
-		TextSearcher fuerza_bruta = null;
-		TextSearcher kmp = null;
-		TextSearcher bm = null;
+		TextSearcher fuerza_bruta = new FuerzaBruta();;
+		TextSearcher kmp = new KnuthMorrisPrattV2();
+		TextSearcher bm = new BoyerMooreV2();
 		
 		String fuerza_bruta_output_path = "FuerzaBrutaOuput";
 		String kmp_output_path = "KMPOutput";

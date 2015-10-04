@@ -1,0 +1,8 @@
+package algoritmos;
+
+public class FuerzaBruta extends TextSearcher {
+	
+	public FuerzaBruta(){
+		
+	}
+}
