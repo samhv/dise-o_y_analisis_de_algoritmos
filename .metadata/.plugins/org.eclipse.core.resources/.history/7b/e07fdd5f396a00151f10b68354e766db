@@ -9,6 +9,8 @@ import experimentos.TextPatterns;
 
 public class BoyerMooreV2 extends TextSearcher{  
 	
+   
+    
 	public  List<Integer> match(String pattern, String text) {  
         List<Integer> matches = new ArrayList<Integer>();  
         int m = text.length();  

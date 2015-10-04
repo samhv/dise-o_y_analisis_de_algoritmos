@@ -1,8 +1,0 @@
-package algoritmos;
-
-public class FuerzaBruta {
-	
-	public FuerzaBruta(){
-		
-	}
-}
