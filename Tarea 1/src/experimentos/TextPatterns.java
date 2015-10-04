@@ -3,12 +3,9 @@ package experimentos;
 import java.util.Random;
 
 public class TextPatterns extends Patterns {
-
-	private String text;
 	
 	public TextPatterns(int numero_de_patrones, String text) {
-		super(numero_de_patrones);
-		this.text=text;
+		super(numero_de_patrones,text);
 	}
 
 	@Override

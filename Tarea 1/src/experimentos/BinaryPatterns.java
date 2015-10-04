@@ -5,7 +5,7 @@ import java.util.Random;
 public class BinaryPatterns extends Patterns {
 
 	public BinaryPatterns(int numero_de_patrones) {
-		super(numero_de_patrones);
+		super(numero_de_patrones,"");
 	}
 
 	@Override

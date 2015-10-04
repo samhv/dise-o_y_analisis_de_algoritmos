@@ -1,13 +1,11 @@
 package experimentos;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Hashtable;
-import java.util.Random;
 
 import algoritmos.BoyerMooreV2;
 import algoritmos.FuerzaBruta;
@@ -54,28 +52,32 @@ public class Main {
 		};
 		Patterns[] patterns = { 
 				new BinaryPatterns(numero_de_patrones), 
-				new TextPatterns(numero_de_patrones,adn_real_path),
-				new TextPatterns(numero_de_patrones,adn_sintético),
-				new TextPatterns(numero_de_patrones,lenguaje_natural_real_path),
-				new TextPatterns(numero_de_patrones,lenguaje_natural_sintetico_path)
+				new TextPatterns(numero_de_patrones,getText(adn_real_path)),
+				new TextPatterns(numero_de_patrones,getText(adn_sintético)),
+				new TextPatterns(numero_de_patrones,getText(lenguaje_natural_real_path)),
+				new TextPatterns(numero_de_patrones,getText(lenguaje_natural_sintetico_path))
 		};	
 		
 		
 		Hashtable<String, Patterns> patternsHash = new Hashtable<String, Patterns>();
-		for(int i=0;i<files.length;i++,patternsHash.put(files[i], patterns[i]));
+		for(int i=0;i<files.length;i++){
+			patternsHash.put(files[i], patterns[i]);
+		}
 		
 		Hashtable<TextSearcher, PrintWriter> outputs_path_hash = new Hashtable<TextSearcher, PrintWriter>();
-		for(int i=0;i<algoritms.length;i++,outputs_path_hash.put(algoritms[i], outputs[i]));
+		for(int i=0;i<algoritms.length;i++){
+			outputs_path_hash.put(algoritms[i], outputs[i]);
+		}
 		
 		Patterns pattern;
-		PrintWriter autput_file;
+		PrintWriter output_file;
 		String text;
 		for (String file_path : files) {
 			text = getText(file_path); 
 			for (TextSearcher algoritm : algoritms){
 				pattern = patternsHash.get(file_path);
-				autput_file = outputs_path_hash.get(algoritm);
-				new Experimento(algoritm,pattern,text,autput_file,file_path);
+				output_file = outputs_path_hash.get(algoritm);
+				new Experimento(algoritm,pattern,text,output_file,file_path);
 			}
 		}
 		
