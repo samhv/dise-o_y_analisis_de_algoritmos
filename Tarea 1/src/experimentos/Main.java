@@ -16,19 +16,19 @@ public class Main {
      
 		int numero_de_patrones = 1;
 		
-		String alfabeto_binario_path = "";
-		String adn_real_path = "";
-		String adn_sintético = "";
-		String lenguaje_natural_real_path = "";
-		String lenguaje_natural_sintetico_path = "";
+		String alfabeto_binario_path = "AlfabetoBinario";
+		String adn_real_path = "ADNReal";
+		String adn_sintético = "ADNSintetico";
+		String lenguaje_natural_real_path = "InglesReal";
+		String lenguaje_natural_sintetico_path = "InglesSintetico";
 		
 		TextSearcher fuerza_bruta = null;
 		TextSearcher kmp = null;
 		TextSearcher bm = null;
 		
-		String fuerza_bruta_output_path = "";
-		String kmp_output_path = "";
-		String bm_output_path = "";
+		String fuerza_bruta_output_path = "FuerzaBrutaOuput";
+		String kmp_output_path = "KMPOutput";
+		String bm_output_path = "BMOutput";
 		
 		PrintWriter[] outputs = {
 				new PrintWriter(fuerza_bruta_output_path, "UTF-8"),
@@ -85,31 +85,5 @@ public class Main {
 	public static String getText(String path) throws IOException{
 		return new String(Files.readAllBytes(Paths.get(path)));
 	}
-	
-	/*public static void main(String[] args){
-		int l=1;
-		String x = "ho";
-		Random randomWord = new Random();
-		int a = randomWord.nextInt(x.length()-l+1);
-		System.out.println(x.substring(a, a+l));	
-	}*/
-	
-	/*public static void main(String[] args){
-		String[] to_return = new String[3];
-		Random randomWord = new Random();
-		String x;
-		for(int i=0; i<3;i++) {
-			x="";
-			for(int j=0;j<128;j++) {
-				x += Integer.toString(randomWord.nextInt(2));
-			}
-			to_return[i]=x;
-		}
-		System.out.println(to_return[0]);
-		System.out.println(to_return[1]);
-		System.out.println(to_return[2]);
-		System.out.println(to_return[2].length());
-	}*/
-	
-	
+		
 }

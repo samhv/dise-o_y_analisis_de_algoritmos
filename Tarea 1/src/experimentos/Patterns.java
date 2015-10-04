@@ -8,7 +8,7 @@ public abstract class Patterns {
 	
 	private Hashtable<Integer, String[]> patterns;
 	public static int l_i=2;
-	public static int l_f=7;
+	public static int l_f=3;
 	
 	public Patterns(int numero_de_patrones){
 		patterns = new Hashtable<Integer, String[]>();
