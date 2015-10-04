@@ -38,5 +38,11 @@ public class FuerzaBruta extends TextSearcher {
 		return cantidad;
 	}
 	
-	
+	public static void main(String[] args) { 
+		 String pat = args[0];
+	    String txt = args[1];
+	   
+	    FuerzaBruta fuerza = new FuerzaBruta();
+	    System.out.println(fuerza.search(pat, txtt));
+	}
 }
