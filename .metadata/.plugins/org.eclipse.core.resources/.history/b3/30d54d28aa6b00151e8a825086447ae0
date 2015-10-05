@@ -24,6 +24,12 @@ public class Experimento {
 		}
 	}
 	
+	public Integer calcular_error(ArrayList<Integer> datos){
+		
+		
+		
+		return null;
+	}
 	
 	public double calcular_promedio(ArrayList<Integer> datos){
 		
@@ -52,7 +58,5 @@ public class Experimento {
 		return Math.sqrt(calcular_varianza(datos)/datos.size());
 	}	
 	
-	public double calcular_error(ArrayList<Integer> datos){
-		return (4*calcular_varianza_estimador(datos)*100)/calcular_promedio(datos);
-	}
+	public double calcular_
 }

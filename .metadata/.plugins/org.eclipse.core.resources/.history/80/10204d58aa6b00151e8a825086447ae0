@@ -24,6 +24,12 @@ public class Experimento {
 		}
 	}
 	
+	public Integer calcular_error(ArrayList<Integer> datos){
+		
+		
+		
+		return null;
+	}
 	
 	public double calcular_promedio(ArrayList<Integer> datos){
 		

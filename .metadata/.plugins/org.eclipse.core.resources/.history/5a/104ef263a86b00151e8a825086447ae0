@@ -24,13 +24,19 @@ public class Experimento {
 		}
 	}
 	
+	public Integer calcular_error(ArrayList<Integer> datos){
+		
+		
+		
+		return null;
+	}
 	
 	public double calcular_promedio(ArrayList<Integer> datos){
 		
 		double suma = 0;
 		
 		for(Integer i : datos){
-			suma += i;
+			suma = suma + i;
 		}
 		
 		double promedio = suma/datos.size();
@@ -39,20 +45,5 @@ public class Experimento {
 
 	}
 	
-	public double calcular_varianza(ArrayList<Integer> datos){
-		
-		double sumatoria = 0;
-		for(Integer t : datos){
-			sumatoria += Math.pow(t,2);
-		}
-		return (sumatoria - datos.size()*Math.pow(calcular_promedio(datos),2))/(datos.size()-1);
-	}
 	
-	public double calcular_varianza_estimador(ArrayList<Integer> datos){
-		return Math.sqrt(calcular_varianza(datos)/datos.size());
-	}	
-	
-	public double calcular_error(ArrayList<Integer> datos){
-		return (4*calcular_varianza_estimador(datos)*100)/calcular_promedio(datos);
-	}
 }
