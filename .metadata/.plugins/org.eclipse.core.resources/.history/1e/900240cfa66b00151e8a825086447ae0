@@ -87,6 +87,7 @@ public class KMP extends TextSearcher
             {
                 // mismatch occurs after j matches
                 if(patternPos != 0){
+                	numberOfComparations++;
                     patternPos = lps[patternPos-1];
                 }
                 else

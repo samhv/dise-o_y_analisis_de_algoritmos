@@ -15,9 +15,7 @@ public class KMP extends TextSearcher
  
         for (int i=1; i < pattern.length();)
         {
-        	numberOfComparations++;
-        	numberOfComparations++;
-
+        	
             if(pattern.charAt(i) == pattern.charAt(currMaxLPS))
             {
                 currMaxLPS++;
