@@ -26,7 +26,9 @@ public class FuerzaBruta extends TextSearcher {
 				 
 
 		         if(indexInPattern == (n-1) && x==y){
-		        	 
+		        	 System.out.print(x);
+		        	 System.out.println( " "+y);
+		        	 System.out.println("sume");
 		        	 cantidad ++;
 		        	 punteroGlobal++;
 		        	 break;
@@ -44,9 +46,9 @@ public class FuerzaBruta extends TextSearcher {
 		return cantidad;
 	}
 	
-//	public static void main(String args []){
-//		FuerzaBruta m = new FuerzaBruta();
-//		System.out.println(m.search("aa", "aaaa"));
-//	}
+	public static void main(String args []){
+		FuerzaBruta m = new FuerzaBruta();
+		System.out.println(m.search("aa", "aaaa"));
+	}
 	
 }

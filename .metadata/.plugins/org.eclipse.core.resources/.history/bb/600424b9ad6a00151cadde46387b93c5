@@ -13,25 +13,22 @@ public class FuerzaBruta extends TextSearcher {
 		int m = text.length();  
         int n = pattern.length();  
         
-        int punteroGlobal = 0;
+        int alignedAt = 0;
         
-		while(punteroGlobal + (n - 1) < m){
+		while(alignedAt + (n - 1) < m){
 			
 			for (int indexInPattern = 0; indexInPattern < n ; indexInPattern++) { 
-				int indexInText = punteroGlobal + indexInPattern;  
+				int indexInText = alignedAt + indexInPattern;  
 				 if (indexInText >= m) break; 
 				 
 				 char x = text.charAt(indexInText);  
 		         char y = pattern.charAt(indexInPattern); 
-				 
-
-		         if(indexInPattern == (n-1) && x==y){
-		        	 
+		         
+		         if(indexInPattern == (n-1)){
 		        	 cantidad ++;
-		        	 punteroGlobal++;
-		        	 break;
+		        	 alignedAt++;
 		         }else if( x != y){
-		        	 punteroGlobal++;
+		        	 alignedAt++;
 		        	// alignedAt = indexInText + 1; 
 		        	 break;  
 		         }
@@ -44,9 +41,9 @@ public class FuerzaBruta extends TextSearcher {
 		return cantidad;
 	}
 	
-//	public static void main(String args []){
-//		FuerzaBruta m = new FuerzaBruta();
-//		System.out.println(m.search("aa", "aaaa"));
-//	}
+	public static void main(String args []){
+		FuerzaBruta m = new FuerzaBruta();
+		System.out.println(m.search("aa", "aaaa"));
+	}
 	
 }
