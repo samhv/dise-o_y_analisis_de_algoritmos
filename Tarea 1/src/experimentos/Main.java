@@ -85,7 +85,7 @@ public class Main {
 			output.close();
 		}
 	
-	}  
+	}
 	
 	public static String getText(String path) throws IOException{
 		return new String(Files.readAllBytes(Paths.get(path)));
