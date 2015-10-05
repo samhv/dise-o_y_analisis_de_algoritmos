@@ -35,8 +35,8 @@ public class Experimento {
 		Patterns the_patterns;
 		Integer matchs;
 		String to_print;
-		float prom;
-		float sigma;
+		double prom;
+		double sigma;
 		for ( int l = Patterns.l_i; l <= Patterns.l_f; l++){
 			muestras_tiempo = new ArrayList<Integer>();
 			muestras_comparaciones = new ArrayList<Integer>();
@@ -78,17 +78,35 @@ public class Experimento {
 		}
 		
 	}
-	
-	public Integer calcular_error(ArrayList<Integer> muestra){
-		return (int) (400*calcular_varianza_estimada(muestra)/calcular_promedio(muestra));
-	}
-	
-	public float calcular_varianza_estimada(ArrayList<Integer> muestra){
-		return 0;
-	}
-	
-	public float calcular_promedio(ArrayList<Integer> muestra){
-		return 0;
+
+	public double calcular_promedio(ArrayList<Integer> datos) {
+
+		double suma = 0;
+
+		for (Integer i : datos) {
+			suma += i;
+		}
+
+		double promedio = suma / datos.size();
+
+		return promedio;
+
 	}
 
+	public double calcular_varianza(ArrayList<Integer> datos) {
+
+		double sumatoria = 0;
+		for (Integer t : datos) {
+			sumatoria += Math.pow(t, 2);
+		}
+		return (sumatoria - datos.size() * Math.pow(calcular_promedio(datos), 2)) / (datos.size() - 1);
+	}
+
+	public double calcular_varianza_estimada(ArrayList<Integer> datos) {
+		return Math.sqrt(calcular_varianza(datos) / datos.size());
+	}
+
+	public double calcular_error(ArrayList<Integer> datos) {
+		return (4 * calcular_varianza_estimada(datos) * 100) / calcular_promedio(datos);
+	}
 }
