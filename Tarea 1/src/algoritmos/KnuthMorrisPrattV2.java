@@ -56,6 +56,7 @@ public class KnuthMorrisPrattV2 extends TextSearcher{
                  j = dfa[txt.charAt(i)][j];
              }
         	 k = i+1;
+        	 this.numberOfComparations++;
              if (j == largoPatron) {
        
             	 cantidad ++ ;

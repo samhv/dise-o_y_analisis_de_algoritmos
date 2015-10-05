@@ -14,8 +14,6 @@ import algoritmos.TextSearcher;
 
 public class Main {
 	public static void main(String[] args) throws IOException, URISyntaxException { 
-     
-		int numero_de_patrones = 1;
 		
 		String alfabeto_binario_path = "AlfabetoBinario";
 		String adn_real_path = "ADNReal";
@@ -50,16 +48,17 @@ public class Main {
 				lenguaje_natural_real_path, 
 				lenguaje_natural_sintetico_path 
 		};
-		Patterns[] patterns = { 
-				new BinaryPatterns(numero_de_patrones), 
-				new TextPatterns(numero_de_patrones,getText(adn_real_path)),
-				new TextPatterns(numero_de_patrones,getText(adn_sintético)),
-				new TextPatterns(numero_de_patrones,getText(lenguaje_natural_real_path)),
-				new TextPatterns(numero_de_patrones,getText(lenguaje_natural_sintetico_path))
-		};	
 		
+		int numero_de_patrones = 1;
+		Integer[] patterns = { 
+				0, 
+				1,
+				1,
+				1,
+				1
+		};
 		
-		Hashtable<String, Patterns> patternsHash = new Hashtable<String, Patterns>();
+		Hashtable<String, Integer> patternsHash = new Hashtable<String, Integer>();
 		for(int i=0;i<files.length;i++){
 			patternsHash.put(files[i], patterns[i]);
 		}
@@ -69,7 +68,7 @@ public class Main {
 			outputs_path_hash.put(algoritms[i], outputs[i]);
 		}
 		
-		Patterns pattern;
+		Integer pattern;
 		PrintWriter output_file;
 		String text;
 		for (String file_path : files) {
@@ -77,7 +76,8 @@ public class Main {
 			for (TextSearcher algoritm : algoritms){
 				pattern = patternsHash.get(file_path);
 				output_file = outputs_path_hash.get(algoritm);
-				new Experimento(algoritm,pattern,text,output_file,file_path);
+				Experimento e = new Experimento(algoritm,text,output_file,file_path,pattern,5);
+				e.go();
 			}
 		}
 		

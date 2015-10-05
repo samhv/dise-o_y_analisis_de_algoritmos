@@ -20,11 +20,12 @@ public class BoyerMooreV2 extends TextSearcher{
 	            int indexInText = alignedAt + indexInPattern;  
 	            char x = text.charAt(indexInText);  
 	            char y = pattern.charAt(indexInPattern);  
+	            	this.numberOfComparations ++;
 	                if (indexInText >= m) break;  
-	                
-	                numberOfComparations ++;
-	                
-	                if (x != y) {  
+	                this.numberOfComparations ++;
+	                this.numberOfComparations ++;
+	                if (x != y) {
+	                	this.numberOfComparations --;
 	                    Integer r = rightMostIndexes.get(x);  
 	                    if (r == null) {  
 	                        alignedAt = indexInText + 1;  
@@ -35,7 +36,7 @@ public class BoyerMooreV2 extends TextSearcher{
 	                    }  
 	                    break;  
 	                }  
-	                else if (indexInPattern == 0) {  
+	                else if (indexInPattern == 0) {	                	
 	                    matches.add(alignedAt);  
 	                    alignedAt++;  
                 }  
@@ -48,6 +49,7 @@ public class BoyerMooreV2 extends TextSearcher{
         Map<Character, Integer> map = new HashMap<Character, Integer>();  
         for (int i = pattern.length() - 1; i >= 0; i--) {  
             char c = pattern.charAt(i);  
+            this.numberOfComparations ++;
             if (!map.containsKey(c)) map.put(c, i);  
         }  
         return map;  
