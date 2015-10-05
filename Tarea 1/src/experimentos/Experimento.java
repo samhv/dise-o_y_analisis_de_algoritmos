@@ -77,11 +77,11 @@ public class Experimento {
 			//System.out.println(calcular_error(muestras_tiempo));
 			prom = calcular_promedio(muestras_tiempo);
 			sigma = calcular_varianza_estimada(muestras_tiempo);
-			to_print=  "t:\t" + (prom-2*sigma) + "\t" + (prom+2*sigma) + "\t" + 400*prom/sigma + "\t" + l + "\t" + file_path;
+			to_print=  "t:\t" + (prom-2*sigma) + "\t" + (prom+2*sigma) + "\t" + 400*sigma/prom+ "\t" + l + "\t" + file_path;
 			output_file.println(to_print);
 			prom = calcular_promedio(muestras_comparaciones);
 			sigma = calcular_varianza_estimada(muestras_comparaciones);
-			to_print=  "c:\t" + (prom-2*sigma) + "\t" + (prom+2*sigma) + "\t" + 400*prom/sigma + "\t" + l + "\t" + file_path;
+			to_print=  "c:\t" + (prom-2*sigma) + "\t" + (prom+2*sigma) + "\t" + 400*sigma/prom+ "\t" + l + "\t" + file_path;
 			output_file.println(to_print);
 		}
 		
