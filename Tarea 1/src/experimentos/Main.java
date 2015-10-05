@@ -9,7 +9,7 @@ import java.util.Hashtable;
 
 import algoritmos.BoyerMooreV2;
 import algoritmos.FuerzaBruta;
-import algoritmos.KnuthMorrisPrattV2;
+import algoritmos.KMP;
 import algoritmos.TextSearcher;
 
 public class Main {
@@ -24,7 +24,7 @@ public class Main {
 		String lenguaje_natural_sintetico_path = "InglesSintetico";
 		
 		TextSearcher fuerza_bruta = new FuerzaBruta();;
-		TextSearcher kmp = new KnuthMorrisPrattV2();
+		TextSearcher kmp = new KMP();
 		TextSearcher bm = new BoyerMooreV2();
 		
 		String fuerza_bruta_output_path = "FuerzaBrutaOuput";

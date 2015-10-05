@@ -40,7 +40,11 @@ public class BoyerMooreV2 extends TextSearcher{
 	                    alignedAt++;  
                 }  
             }  
+            
         }  
+        
+        
+        
         return matches;  
     }  
     private  Map<Character, Integer> preprocessForBadCharacterShift(  
