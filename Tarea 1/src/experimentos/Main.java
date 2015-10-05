@@ -74,6 +74,7 @@ public class Main {
 		for (String file_path : files) {
 			text = getText(file_path); 
 			for (TextSearcher algoritm : algoritms){
+				System.out.println(file_path + " " + algoritm.toString());
 				pattern = patternsHash.get(file_path);
 				output_file = outputs_path_hash.get(algoritm);
 				Experimento e = new Experimento(algoritm,text,output_file,file_path,pattern,5);

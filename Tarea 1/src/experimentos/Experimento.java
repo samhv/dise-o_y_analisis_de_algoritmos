@@ -2,6 +2,7 @@ package experimentos;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -37,15 +38,19 @@ public class Experimento {
 		String to_print;
 		double prom;
 		double sigma;
+		String a;
+		String b;
+		String c;
 		for ( int l = Patterns.l_i; l <= Patterns.l_f; l++){
 			muestras_tiempo = new ArrayList<Integer>();
 			muestras_comparaciones = new ArrayList<Integer>();
-			while(calcular_error(muestras_comparaciones)>error_permitido){
+			while(calcular_error(muestras_tiempo)>error_permitido){
+				//System.out.println(calcular_error(muestras_tiempo));
 				if(pattern==1){
-					the_patterns=new TextPatterns(100,text);					
+					the_patterns=new TextPatterns(2,text);					
 				}
 				else{
-					the_patterns=new BinaryPatterns(100);
+					the_patterns=new BinaryPatterns(2);
 				}
 				String[] patterns = the_patterns.getPatternsFromLarge(l);
 				for ( String pattern : patterns){
@@ -53,13 +58,15 @@ public class Experimento {
 					muestras_tiempo.add((int) algoritm.getTimeOfExecutionInNano());
 					muestras_comparaciones.add(matchs);
 				}
-			}	
-			while(calcular_error(muestras_tiempo)>error_permitido){
+			}
+			//System.out.println(calcular_error(muestras_comparaciones));
+			while(calcular_error(muestras_comparaciones)>error_permitido){
+				//System.out.println(calcular_error(muestras_comparaciones));
 				if(pattern==1){
-					the_patterns=new TextPatterns(100,text);					
+					the_patterns=new TextPatterns(5000,text);					
 				}
 				else{
-					the_patterns=new BinaryPatterns(100);
+					the_patterns=new BinaryPatterns(5000);
 				}
 				String[] patterns = the_patterns.getPatternsFromLarge(l);
 				for ( String pattern : patterns){
@@ -67,6 +74,7 @@ public class Experimento {
 					muestras_comparaciones.add(matchs);
 				}
 			}
+			//System.out.println(calcular_error(muestras_tiempo));
 			prom = calcular_promedio(muestras_tiempo);
 			sigma = calcular_varianza_estimada(muestras_tiempo);
 			to_print=  "t:\t" + (prom-2*sigma) + "\t" + (prom+2*sigma) + "\t" + 400*prom/sigma + "\t" + l + "\t" + file_path;
@@ -107,6 +115,9 @@ public class Experimento {
 	}
 
 	public double calcular_error(ArrayList<Integer> datos) {
+		if(datos.isEmpty()){
+			return 100;
+		}
 		return (4 * calcular_varianza_estimada(datos) * 100) / calcular_promedio(datos);
 	}
 }
