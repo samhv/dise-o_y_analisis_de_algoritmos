@@ -7,7 +7,7 @@ public abstract class Patterns {
 	private Hashtable<Integer, String[]> patterns;
 	protected String text;
 	public static int l_i=2;
-	public static int l_f=2;
+	public static int l_f=7;
 	
 	public Patterns(int numero_de_patrones, String text){
 		this.text=text;
