@@ -17,14 +17,12 @@ public class BoyerMooreV2 extends TextSearcher {
 		int alignedAt = 0;
 		while (alignedAt + (n - 1) < m) {
 			for (int indexInPattern = n - 1; indexInPattern >= 0; indexInPattern--) {
+				numberOfComparations++;
 				int indexInText = alignedAt + indexInPattern;
 				char x = text.charAt(indexInText);
 				char y = pattern.charAt(indexInPattern);
 				if (indexInText >= m)
 					break;
-
-				numberOfComparations++;
-
 				if (x != y) {
 					Integer r = rightMostIndexes.get(x);
 					if (r == null) {
@@ -48,6 +46,7 @@ public class BoyerMooreV2 extends TextSearcher {
 	private Map<Character, Integer> preprocessForBadCharacterShift(String pattern) {
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 		for (int i = pattern.length() - 1; i >= 0; i--) {
+			numberOfComparations++;
 			char c = pattern.charAt(i);
 			if (!map.containsKey(c))
 				map.put(c, i);
