@@ -54,6 +54,14 @@ public class BoyerMooreV2 extends TextSearcher {
 		return map;
 	}
 
+	// public static void main(String[] args) {
+	// String pat = args[0];
+	// String txt = args[1];
+	//
+	// List<Integer> matches = match(pat, txt);
+	// for (Integer integer : matches) System.out.println("Match at: " +
+	// integer);
+	// }
 	@Override
 	protected int search(String pattern, String text) {
 		List<Integer> matches = match(pattern, text);

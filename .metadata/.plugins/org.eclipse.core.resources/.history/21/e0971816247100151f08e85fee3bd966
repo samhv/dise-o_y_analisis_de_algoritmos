@@ -12,6 +12,7 @@ public class FuerzaBruta extends TextSearcher {
 		int cantidad = 0;
 		int m = text.length();
 		int n = pattern.length();
+
 		int punteroGlobal = 0;
 
 		while (punteroGlobal + (n - 1) < m) {
