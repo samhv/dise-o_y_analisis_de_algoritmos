@@ -20,7 +20,12 @@ public class KMP extends TextSearcher {
 				i++;
 			} else {
 				if (currMaxLPS != 0) {
-				
+					// Note that lps[currMaxLPS-1] contains the largest
+					// prefix of pattern that matches the suffix ending
+					// at pattern[currMaxLPS-1]
+					// So we try to match from that prefix (which has to be
+					// smaller than current prefix)
+					// Observe that i is not incrementing here.
 					currMaxLPS = lps[currMaxLPS - 1];
 				} else {
 					lps[i] = 0;

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="experimentos.TextPatterns"/>
 <fullyQualifiedTypeName name="algoritmos.KnuthMorrisPrattV2"/>
 <fullyQualifiedTypeName name="algoritmos.BoyerMooreV2"/>
-<fullyQualifiedTypeName name="algoritmos.TextSearcher"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="algoritmos.FuerzaBruta"/>
+<fullyQualifiedTypeName name="algoritmos.TextSearcher"/>
+<fullyQualifiedTypeName name="algoritmos.KMP"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
