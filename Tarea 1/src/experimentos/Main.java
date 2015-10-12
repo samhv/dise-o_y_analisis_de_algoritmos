@@ -49,7 +49,6 @@ public class Main {
 				lenguaje_natural_sintetico_path 
 		};
 		
-		int numero_de_patrones = 1;
 		Integer[] patterns = { 
 				0, 
 				1,

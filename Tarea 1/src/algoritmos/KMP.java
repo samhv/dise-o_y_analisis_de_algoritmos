@@ -12,7 +12,7 @@ public class KMP extends TextSearcher {
 
 		for (int i = 1; i < pattern.length();) {
 			numberOfComparations++;
-			numberOfComparations++;
+			//numberOfComparations++;
 
 			if (pattern.charAt(i) == pattern.charAt(currMaxLPS)) {
 				currMaxLPS++;
@@ -43,19 +43,20 @@ public class KMP extends TextSearcher {
 		int txtPos = 0, patternPos = 0;
 		while (txtPos < txt.length()) {
 			numberOfComparations++;
-			numberOfComparations++;
+			//numberOfComparations++;
+			//numberOfComparations++;
 
 			if (pattern.charAt(patternPos) == txt.charAt(txtPos)) {
 				patternPos++;
 				txtPos++;
 			}
 
-			numberOfComparations++;
-			numberOfComparations++;
+			//numberOfComparations++;
+			//numberOfComparations++;
 
 			if (patternPos == pattern.length()) {
-				numberOfComparations--;
-				numberOfComparations--;
+				//numberOfComparations--;
+				//numberOfComparations--;
 
 				cantidad++;
 				// System.out.println
