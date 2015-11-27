@@ -1,0 +1,34 @@
+package trees;
+
+/**
+ *  Árbol de van Emde Boas
+ * @author Pablo
+ *
+ */
+public class Veb extends ITree{
+
+	@Override
+	public String search(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insert(String key, String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

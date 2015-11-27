@@ -1,0 +1,99 @@
+package trees;
+
+import estructuras.Nodo;
+
+public abstract class ITree {
+	
+	protected Nodo root;
+	protected int size;
+
+	
+	
+	public abstract String search(String key);
+
+	public abstract void insert(String key,String value);
+
+	public abstract void delete(String key);
+	
+	public abstract int size();
+	
+	protected enum Posicion {
+        Izquierda, Derecha
+    }
+	
+    protected void rotarIzquierda(Nodo node) {
+    	Posicion parentPosition = null;
+        Nodo parent = node.getParent();
+        if (parent != null) {
+            if (node.equals(parent.getLeft())) {
+                // Lesser
+                parentPosition = Posicion.Izquierda;
+            } else {
+                // Greater
+                parentPosition = Posicion.Derecha;
+            }
+        }
+
+        Nodo greater = node.getRight();
+        node.setRight(null);
+        Nodo lesser = greater.getLeft();
+
+        greater.setLeft(node);
+        node.setParent(greater);
+
+        node.greater = lesser;
+        if (lesser != null)
+            lesser.parent = node;
+
+        if (parent!=null && parentPosition != null) {
+            if (parentPosition == Position.LEFT) {
+                parent.lesser = greater;
+            } else {
+                parent.greater = greater;
+            }
+            greater.parent = parent;
+        } else {
+            root = greater;
+            greater.parent = null;
+        }
+    }
+
+    
+    protected void rotarDerecha(Nodo node) {
+        Position parentPosition = null;
+        Nodo parent = node.parent;
+        if (parent != null) {
+            if (node.equals(parent.lesser)) {
+                // Lesser
+                parentPosition = Position.LEFT;
+            } else {
+                // Greater
+                parentPosition = Position.RIGHT;
+            }
+        }
+
+        Nodo lesser = node.getLeft();
+        node.setLeft(null);
+        Nodo greater = lesser.getRight();
+
+        lesser.setRight(node); 
+        node.setParent(lesser);
+
+        node.setLeft(greater);
+        if (greater != null)
+            greater.setParent(node);
+
+        if (parent!=null && parentPosition != null) {
+            if (parentPosition == Position.LEFT) {
+                parent.lesser = lesser;
+            } else {
+                parent.greater = lesser;
+            }
+            lesser.parent = parent;
+        } else {
+            root = lesser;
+            lesser.parent = null;
+        }
+    }
+
+}

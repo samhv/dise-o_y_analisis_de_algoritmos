@@ -1,0 +1,10 @@
+package trees;
+
+/**
+ * Splay Tree
+ * @author Pablo
+ *
+ */
+public class Splay {
+
+}

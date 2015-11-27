@@ -1,17 +1,27 @@
 package estructuras;
 
 public class Nodo {
-	
+
 	private String key;
 	private String value;
 	private Nodo left;
 	private Nodo right;
-	
-	public Nodo(String key,String value){
+	private Nodo parent;
+
+	public Nodo(Nodo parent, String key, String value) {
+		this.parent = parent;
 		this.key = key;
 		this.value = value;
 		this.left = null;
 		this.right = null;
+	}
+
+	public Nodo getParent() {
+		return parent;
+	}
+
+	public void setParent(Nodo parent) {
+		this.parent = parent;
 	}
 
 	public String getKey() {
@@ -45,7 +55,5 @@ public class Nodo {
 	public void setRight(Nodo right) {
 		this.right = right;
 	}
-	
-	
-	
+
 }

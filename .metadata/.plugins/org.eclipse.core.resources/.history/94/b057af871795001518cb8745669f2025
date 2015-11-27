@@ -1,0 +1,99 @@
+package trees;
+
+public abstract class ITree {
+	
+	public abstract String search(String key);
+
+	public abstract void insert(String key,String value);
+
+	public abstract void delete(String key);
+	
+	public abstract int size();
+	
+	/**
+     * Rotate tree left at sub-tree rooted at node.
+     * 
+     * @param node
+     *            Root of tree to rotate left.
+     */
+    protected void rotateLeft(Node<T> node) {
+        Position parentPosition = null;
+        Node<T> parent = node.parent;
+        if (parent != null) {
+            if (node.equals(parent.lesser)) {
+                // Lesser
+                parentPosition = Position.LEFT;
+            } else {
+                // Greater
+                parentPosition = Position.RIGHT;
+            }
+        }
+
+        Node<T> greater = node.greater;
+        node.greater = null;
+        Node<T> lesser = greater.lesser;
+
+        greater.lesser = node;
+        node.parent = greater;
+
+        node.greater = lesser;
+        if (lesser != null)
+            lesser.parent = node;
+
+        if (parent!=null && parentPosition != null) {
+            if (parentPosition == Position.LEFT) {
+                parent.lesser = greater;
+            } else {
+                parent.greater = greater;
+            }
+            greater.parent = parent;
+        } else {
+            root = greater;
+            greater.parent = null;
+        }
+    }
+
+    /**
+     * Rotate tree right at sub-tree rooted at node.
+     * 
+     * @param node
+     *            Root of tree to rotate left.
+     */
+    protected void rotateRight(Node<T> node) {
+        Position parentPosition = null;
+        Node<T> parent = node.parent;
+        if (parent != null) {
+            if (node.equals(parent.lesser)) {
+                // Lesser
+                parentPosition = Position.LEFT;
+            } else {
+                // Greater
+                parentPosition = Position.RIGHT;
+            }
+        }
+
+        Node<T> lesser = node.lesser;
+        node.lesser = null;
+        Node<T> greater = lesser.greater;
+
+        lesser.greater = node;
+        node.parent = lesser;
+
+        node.lesser = greater;
+        if (greater != null)
+            greater.parent = node;
+
+        if (parent!=null && parentPosition != null) {
+            if (parentPosition == Position.LEFT) {
+                parent.lesser = lesser;
+            } else {
+                parent.greater = lesser;
+            }
+            lesser.parent = parent;
+        } else {
+            root = lesser;
+            lesser.parent = null;
+        }
+    }
+
+}
