@@ -1,0 +1,17 @@
+package estructuras;
+
+public class Nodo {
+	
+	private String key;
+	private String value;
+	private Nodo left;
+	private Nodo right;
+	
+	public Nodo(String key,String value, Nodo left,Nodo right){
+		this.key = key;
+		this.value = value;
+		this.left = left;
+		this.right = right;
+	}
+	
+}

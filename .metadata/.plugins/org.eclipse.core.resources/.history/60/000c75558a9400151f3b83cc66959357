@@ -1,0 +1,61 @@
+package estructuras;
+
+public class Abb implements ITree {
+
+	private Nodo root;
+
+	private String search(String item, Nodo root) {
+		if (root == null)
+			return null;
+		else if (item.equals(root.getKey()))
+			return root.getValue();
+		else if (item.compareTo(root.getKey()) < 0)
+			return search(item, root.getLeft());
+		else
+			return search(item, root.getRight());
+	}
+
+	@Override
+	public String search(String key) {
+		return search(key, root);
+	}
+
+	@Override
+	public void insert(String key, String value) {
+		if (root == null) {
+			root = new Nodo(key, value, null, null);
+			return;
+		}
+		Nodo nodo = root;
+		while (true) {
+			if (nodo.getKey().equals(key)) {
+				nodo.setValue(value);
+				return;
+			}
+			if (nodo.getKey().compareTo(key) > 0)
+				if (nodo.getLeft() != null)
+					nodo = nodo.getLeft();
+				else {
+					nodo.setLeft(new Nodo(key, value, null, null));
+					return;
+				}
+			else if (nodo.getRight() != null)
+				nodo = nodo.getRight();
+			else {
+				nodo.setRight(new Nodo(key, value, null, null));
+				return;
+			}
+		}
+
+	}
+
+	private Nodo delete(String key,Nodo nodo)
+	{
+		
+	}
+	@Override
+	public void delete(String key) {
+		root = delete(key, root);
+	}
+
+}
