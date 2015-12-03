@@ -14,4 +14,8 @@
 <fullyQualifiedTypeName name="algoritmos.TextSearcher"/>
 <fullyQualifiedTypeName name="algoritmos.KMP"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.swing.text.DefaultEditorKit.InsertBreakAction"/>
+<fullyQualifiedTypeName name="trees.ITree"/>
+<fullyQualifiedTypeName name="estructuras.NodoAVL"/>
+<fullyQualifiedTypeName name="estructuras.Nodo"/>
 </qualifiedTypeNameHistroy>

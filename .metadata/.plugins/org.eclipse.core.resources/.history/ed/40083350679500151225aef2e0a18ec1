@@ -1,0 +1,13 @@
+package estructuras;
+
+public class NodoAVL extends Nodo {
+	
+	protected int height = 1;
+
+	public NodoAVL(Nodo parent, String key, String value) {
+
+		super(parent, key, value);
+
+	}
+
+}

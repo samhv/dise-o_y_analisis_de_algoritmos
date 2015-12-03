@@ -1,0 +1,170 @@
+package trees;
+
+import estructuras.Nodo;
+
+/**
+ * Splay Tree
+ * 
+ * @author Pablo
+ *
+ */
+public class Splay extends Abb {
+
+	private enum Balance {
+		LEFT_LEFT, LEFT_RIGHT, RIGHT_LEFT, RIGHT_RIGHT
+	}
+
+	public Nodo insert(String key, String value) {
+		Nodo nodeToReturn = super.insert(key, value);
+		Nodo nodeAdded = nodeToReturn;
+		if (nodeAdded != null) {
+			// Splay the new node to the root position
+			while (nodeAdded.getParent() != null) {
+				this.splay(nodeAdded);
+			}
+		}
+		return nodeToReturn;
+	}
+
+	public Nodo delete(String key) {
+		Nodo nodeToRemove = super.delete(key);
+		if (nodeToRemove != null) {
+			if (nodeToRemove.getParent() != null) {
+				Nodo nodeParent = nodeToRemove.getParent();
+				// Splay the parent node to the root position
+				while (nodeParent.getParent() != null) {
+					this.splay(nodeParent);
+				}
+			}
+		}
+		return nodeToRemove;
+	}
+
+	public String search(String key) {
+		Nodo node = getNodo(key);
+		if (node != null) {
+			// Splay the new node to the root position
+			while (node.getParent() != null) {
+				this.splay(node);
+			}
+			return node.getValue();
+		}
+		return null;
+	}
+
+	private void splay(Nodo node) {
+		Nodo parent = node.getParent();
+		Nodo grandParent = (parent != null) ? parent.getParent() : null;
+		if (parent == root) {
+			// Zig step
+			root = node;
+			node.setParent(null);
+
+			if (parent != null) {
+				if (node == parent.getLeft()) {
+					parent.setLeft(node.getRight());
+					if (node.getRight() != null)
+						node.getRight().setParent(parent);
+
+					node.setRight(parent);
+					parent.setParent(node);
+				} else {
+					parent.setRight(node.getLeft());
+					if (node.getLeft() != null)
+						node.getLeft().setParent(parent);
+
+					node.setLeft(parent);
+					parent.setParent(node);
+				}
+			}
+		} else if (parent != null && grandParent != null) {
+			Nodo greatGrandParent = grandParent.getParent();
+			if (greatGrandParent != null && greatGrandParent.getLeft() == grandParent) {
+				greatGrandParent.setLeft(node);
+				node.setParent(greatGrandParent);
+			} else if (greatGrandParent != null && greatGrandParent.getRight() == grandParent) {
+				greatGrandParent.setRight(node);
+				node.setParent(greatGrandParent);
+			} else {
+				// I am now root!
+				root = node;
+				node.setParent(null);
+			}
+
+			if ((node == parent.getLeft() && parent == grandParent.lesser)
+					|| (node == parent.greater && parent == grandParent.greater)) {
+				// Zig-zig step
+				if (node == parent.lesser) {
+					Nodo nodeGreater = node.greater;
+					node.greater = parent;
+					parent.parent = node;
+
+					parent.lesser = nodeGreater;
+					if (nodeGreater != null)
+						nodeGreater.parent = parent;
+
+					Nodo parentGreater = parent.greater;
+					parent.greater = grandParent;
+					grandParent.parent = parent;
+
+					grandParent.lesser = parentGreater;
+					if (parentGreater != null)
+						parentGreater.parent = grandParent;
+				} else {
+					Nodo nodeLesser = node.lesser;
+					node.lesser = parent;
+					parent.parent = node;
+
+					parent.greater = nodeLesser;
+					if (nodeLesser != null)
+						nodeLesser.parent = parent;
+
+					Nodo parentLesser = parent.lesser;
+					parent.lesser = grandParent;
+					grandParent.parent = parent;
+
+					grandParent.greater = parentLesser;
+					if (parentLesser != null)
+						parentLesser.parent = grandParent;
+				}
+			} else {
+				// Zig-zag step
+				if (node == parent.getLeft()) {
+					Nodo nodeLesser = node.getRight();
+					Nodo nodeGreater = node.getLeft();
+
+					node.greater = parent;
+					parent.parent = node;
+
+					node.lesser = grandParent;
+					grandParent.parent = node;
+
+					parent.lesser = nodeLesser;
+					if (nodeLesser != null)
+						nodeLesser.parent = parent;
+
+					grandParent.greater = nodeGreater;
+					if (nodeGreater != null)
+						nodeGreater.parent = grandParent;
+				} else {
+					Nodo nodeLesser = node.getLeft();
+					Nodo nodeGreater = node.getRight();
+
+					node.lesser = parent;
+					parent.parent = node;
+
+					node.greater = grandParent;
+					grandParent.parent = node;
+
+					parent.greater = nodeLesser;
+					if (nodeLesser != null)
+						nodeLesser.parent = parent;
+
+					grandParent.lesser = nodeGreater;
+					if (nodeGreater != null)
+						nodeGreater.parent = grandParent;
+				}
+			}
+		}
+	}
+}

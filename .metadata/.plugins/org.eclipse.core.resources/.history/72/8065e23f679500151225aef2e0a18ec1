@@ -1,0 +1,10 @@
+package estructuras;
+
+public class NodoAVL extends Nodo{
+
+	public NodoAVL(Nodo parent, String key, String value) {
+		super(parent, key, value);
+		// TODO Auto-generated constructor stub
+	}
+
+}

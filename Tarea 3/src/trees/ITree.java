@@ -9,9 +9,9 @@ public abstract class ITree {
 
 	public abstract String search(String key);
 
-	public abstract void insert(String key, String value);
+	public abstract Nodo insert(String key, String value);
 
-	public abstract void delete(String key);
+	public abstract Nodo delete(String key);
 
 	public abstract int size();
 

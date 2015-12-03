@@ -36,13 +36,13 @@ public class Abb extends ITree {
 	}
 
 	@Override
-	public void insert(String key, String value) {
+	public Nodo insert(String key, String value) {
 		Nodo nuevo = new Nodo(null, key, value);
 
 		if (root == null) {
 			size++;
 			root = nuevo;
-			return;
+			return nuevo;
 		}
 		Nodo nodo = root;
 		while (nodo != null) {
@@ -52,7 +52,7 @@ public class Abb extends ITree {
 					nodo.setRight(nuevo);
 					nuevo.setParent(nodo);
 					size++;
-					return;
+					return nuevo;
 				}
 				nodo = nodo.getRight();
 
@@ -61,12 +61,13 @@ public class Abb extends ITree {
 					nodo.setLeft(nuevo);
 					nuevo.setParent(nodo);
 					size++;
-					return;
+					return nuevo;
 				}
 				nodo = nodo.getLeft();
 			}
 		}
 
+		return nuevo;
 	}
 
 	protected Nodo getNodo(String key) {
@@ -98,17 +99,22 @@ public class Abb extends ITree {
 		return greater;
 	}
 
-	public void delete(String key) {
+	// revisar
+	public Nodo delete(String key) {
 		Nodo toRemoved = getNodo(key);
-		if (toRemoved != null)
-			removeNode(toRemoved);
+		if (toRemoved != null) {
+			toRemoved = removeNode(toRemoved);
+		}
+		return toRemoved;
 	}
 
-	protected void removeNode(Nodo toRemoved) {
+	protected Nodo removeNode(Nodo toRemoved) {
 		if (toRemoved != null) {
 			Nodo replacementNode = getReplacementNode(toRemoved);
 			replaceNodeWithNode(toRemoved, replacementNode);
 		}
+		return toRemoved;
+
 	}
 
 	protected Nodo getReplacementNode(Nodo nodeToRemoved) {
