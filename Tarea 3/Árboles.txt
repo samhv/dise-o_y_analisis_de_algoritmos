@@ -2,6 +2,11 @@
 
 - AVL
 
+		Average	 	Worst case
+Space	O(n)		O(n)
+Search	O(log n)	O(log n)
+Insert	O(log n)	O(log n)
+Delete	O(log n)	O(log n)
 
 
 - ABB
@@ -10,6 +15,61 @@
 
 - SPLAY TREE
 
+		Average		Worst case
+Space	O(n)		O(n)
+Search	O(log n)	amortized O(log n)
+Insert	O(log n)	amortized O(log n)
+Delete	O(log n)	amortized O(log n)
 
 
-- VON DE BOAS (XD)
+- Van Emde Boas (XD)
+
+Implements an associative array with m-bit integer keys
+M=2^m
+
+Space	O(M)
+Search	O(log log M)
+Insert	O(log log M)
+Delete	O(log log M)
+
+ The vEB tree has good space efficiency when it contains a large number of elements
+
+
+// ============ FUENTE 0 ============ //
+
+Idea, ventajas y desventajas de cada arbol
+
+AVL: http://people.ksp.sk/~kuko/gnarley-trees/?page_id=15
+ABB: http://people.ksp.sk/~kuko/gnarley-trees/?page_id=13
+SPLAY: http://people.ksp.sk/~kuko/gnarley-trees/?page_id=58
+// ============ FUENTE 1 ============ //
+
+Ambos árboles splay y árboles AVL son árboles binarios de búsqueda con excelentes garantías de rendimiento, pero difieren en cómo se logra garantizar el rendimiento. En un árbol AVL, la forma del árbol se ve limitada en todo momento de tal manera que la forma del árbol es equilibrada, lo que significa que la altura del árbol nunca excede de O(log n). Esta forma se mantiene en las inserciones y borrados, y no cambia durante operaciones de búsqueda. Los Árboles SPLAY, por otro lado, mantienen eficiente mediante la "remodelación" del árbol en respuesta a búsquedas en él. De esa manera, los elementos de acceso frecuente se mueven hacia la parte superior del árbol y asi tener mejores tiempos de búsqueda. La forma de los árboles splay no está limitado, y varía en función de lo que las búsquedas se realizan.
+
+Una diferencia clave entre las estructuras es que los árboles AVL garantizan las operaciones de búsqueda rápida (O (log n)) en cada operación, mientras que los árboles splay sólo pueden garantizar que cualquier secuencia de operaciones n toma como máximo O (n log n) tiempo. Esto significa que si se necesita que las búsquedas en tiempo real, el árbol AVL es probable que sea mejor. Sin embargo, los árboles splay tienden ser mucho más rápido en promedio, por lo que si desea reducir al mínimo el tiempo de ejecución total de las búsquedas de los árboles, el árbol splay es probable que sea mejor. Además, los árboles splay soportan algunas operaciones tales como la "splitt" y la "merge" de manera muy eficiente, mientras que las correspondientes operaciones de árboles AVL están más involucrados y menos eficiente. 
+
+Árboles SPLAY son más memoria-eficientes que los árboles AVL, porque no necesitan almacenar información para equilibrar los nodos. Sin embargo, los árboles AVL son más útiles en entornos multiproceso con una gran cantidad de operaciones de búsqueda, ya que las búsquedas en un árbol AVL se pueden hacer en paralelo, mientras que no puede en árboles splay. Como los árboles splay se remodelan  basados ​​en búsquedas, si sólo necesita acceder a un pequeño subconjunto de los elementos del árbol, o si tiene acceso a algunos elementos mucho más que otros, el árbol splay superará el árbol AVL. Por último, árboles splay tienden a ser más fácil de implementar que los árboles AVL, ya que la lógica de rotación es mucho más fácil.
+
+// ============ FUENTE 2 ============ //
+
+1) ¿Cuál es la diferencia entre los árboles AVL y árboles splay?
+
+Son similares en estructura y las operaciones que llamamos en ellos. La diferencia es que en los árboles splay, después de cada operación, tratamos de mantener el árbol casi perfectamente equilibrado para que las operaciones futuras toman menos tiempo.
+
+2) ¿Sobre qué base podemos seleccionar estos árboles?
+
+Árboles SPLAY son siempre mejores que los árboles binarios de búsqueda cuando, tu aplicacion trata con una gran cantidad de datos en el árbol, pero, tendrá acceso a un subconjunto de los datos con mucha frecuencia que otros. En este caso los datos se accede con frecuencia se acercará a la raíz como consecuencia del "reordenamiento". Además, cualquier nodo a continuación, se puede acceder con menos tiempo que antes.
+
+Como regla general para la selección de estos árboles, si es necesario "Normal" log (n) durante un período de operaciones de árboles luego usar árbol splay. Árbol binario no puede garantizar esto.
+
+3) ¿Cuáles son los puntos positivos y de negativos de estos árboles?
+
+Lo positivo para ambos es que usted consigue alrededor de log (n) en estas dos estructuras de datos teóricamente.
+
+Como árboles splay mencionados tienen log media (n) sobre un número de operaciones. Esto significa que, a lo mejor tienes n complejidad de tiempo para una operación al menos una vez en ese conjunto. Pero esto será compensado cuando se accede a los elementos frecuentes.
+
+La negativa del árbol de búsqueda binaria es que, tiene que tener la suerte de tener log (n) siempre. Si las teclas no son al azar, entonces el árbol se reduce a una lista como la forma de un solo lado.
+
+4) ¿Cuáles son las actuaciones de estos árboles en términos de notación O grande?
+
+Iniciar árbol biselado (n) en medio en un grupo de operaciones de los árboles. Iniciar Binary Tree (n) sólo si las llaves van en al azar.
