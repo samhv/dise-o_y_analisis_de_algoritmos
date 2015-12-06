@@ -42,6 +42,7 @@ Idea, ventajas y desventajas de cada arbol
 AVL: http://people.ksp.sk/~kuko/gnarley-trees/?page_id=15
 ABB: http://people.ksp.sk/~kuko/gnarley-trees/?page_id=13
 SPLAY: http://people.ksp.sk/~kuko/gnarley-trees/?page_id=58
+
 // ============ FUENTE 1 ============ //
 
 Ambos árboles splay y árboles AVL son árboles binarios de búsqueda con excelentes garantías de rendimiento, pero difieren en cómo se logra garantizar el rendimiento. En un árbol AVL, la forma del árbol se ve limitada en todo momento de tal manera que la forma del árbol es equilibrada, lo que significa que la altura del árbol nunca excede de O(log n). Esta forma se mantiene en las inserciones y borrados, y no cambia durante operaciones de búsqueda. Los Árboles SPLAY, por otro lado, mantienen eficiente mediante la "remodelación" del árbol en respuesta a búsquedas en él. De esa manera, los elementos de acceso frecuente se mueven hacia la parte superior del árbol y asi tener mejores tiempos de búsqueda. La forma de los árboles splay no está limitado, y varía en función de lo que las búsquedas se realizan.
