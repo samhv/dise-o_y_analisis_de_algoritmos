@@ -1,0 +1,21 @@
+package test;
+
+import trees.Abb;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Abb arbol = new Abb();
+		arbol.insert(1, 1);
+		arbol.insert(2, 2);
+		arbol.insert(3, 3);
+		arbol.insert(4, 4);
+		arbol.insert(5, 5);
+		arbol.insert(6, 6);
+		arbol.delete(4);
+		
+		arbol.preOrden(arbol.getRoot());
+
+	}
+
+}

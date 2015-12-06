@@ -20,23 +20,23 @@ public class Abb extends ITree {
 	}
 
 	@Override
-	public String search(String key) {
+	public int search(int key) {
 
 		Nodo nodo = root;
 		while (nodo != null) {
-			if (key.equals(nodo.getKey()))
+			if (key == nodo.getKey())
 				return nodo.getValue();
-			if (key.compareTo(nodo.getKey()) < 0)
+			if (key < nodo.getKey() )
 				nodo = nodo.getLeft();
 			else
 				nodo = nodo.getRight();
 		}
-		return null;
+		return -1;
 
 	}
 
 	@Override
-	public Nodo insert(String key, String value) {
+	public Nodo insert(int key, int value) {
 		Nodo nuevo = new Nodo(null, key, value);
 
 		if (root == null) {
@@ -46,8 +46,8 @@ public class Abb extends ITree {
 		}
 		Nodo nodo = root;
 		while (nodo != null) {
-
-			if (nodo.getKey().compareTo(key) > 0) {
+			
+			if (nodo.getKey() < key) {
 				if (nodo.getRight() == null) {
 					nodo.setRight(nuevo);
 					nuevo.setParent(nodo);
@@ -70,18 +70,19 @@ public class Abb extends ITree {
 		return nuevo;
 	}
 
-	protected Nodo getNodo(String key) {
+	protected Nodo getNodo(int key) {
 		Nodo node = root;
 		while (node != null) {
-			if (key.compareTo(node.getKey()) == 0) {
+			
+			if (key == node.getKey()) {
 				return node;
-			} else if (key.compareTo(node.getValue()) < 0) {
+			} else if (key < node.getKey()) {
 				node = node.getLeft();
 			} else {
 				node = node.getRight();
 			}
 		}
-		return null;
+		return node;
 	}
 
 	protected Nodo getGreatest(Nodo startingNode) {
@@ -100,7 +101,7 @@ public class Abb extends ITree {
 	}
 
 	// revisar
-	public Nodo delete(String key) {
+	public Nodo delete(int key) {
 		Nodo toRemoved = getNodo(key);
 		if (toRemoved != null) {
 			toRemoved = removeNode(toRemoved);
@@ -182,11 +183,11 @@ public class Abb extends ITree {
 			root = replacementNode;
 			if (root != null)
 				root.setParent(null);
-		} else if (parent.getLeft() != null && (parent.getLeft().getKey().compareTo(nodeToRemoved.getKey()) == 0)) {
+		} else if (parent.getLeft() != null && (parent.getLeft().getKey()==nodeToRemoved.getKey())) {
 			parent.setLeft(replacementNode);
 			if (replacementNode != null)
 				replacementNode.setParent(parent);
-		} else if (parent.getRight() != null && (parent.getRight().getKey().compareTo(nodeToRemoved.getKey()) == 0)) {
+		} else if (parent.getRight() != null && (parent.getRight().getKey()==nodeToRemoved.getKey()) ) {
 			parent.setRight(replacementNode);
 			if (replacementNode != null)
 				replacementNode.setParent(parent);

@@ -1,0 +1,12 @@
+import java.lang.instrument.Instrumentation;
+
+public class test {
+
+	private static Instrumentation instrumentation;
+
+	public static void main(String[] args) {
+
+		System.out.println(instrumentation.getObjectSize(new test()));
+	}
+
+}

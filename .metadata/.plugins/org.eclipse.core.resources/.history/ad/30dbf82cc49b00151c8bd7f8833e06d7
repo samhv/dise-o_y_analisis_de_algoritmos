@@ -1,0 +1,10 @@
+
+public class A {
+
+	double a = Double.MAX_VALUE;
+	double b = Double.MAX_VALUE;
+	double c = Double.MAX_VALUE;
+	
+	
+
+}

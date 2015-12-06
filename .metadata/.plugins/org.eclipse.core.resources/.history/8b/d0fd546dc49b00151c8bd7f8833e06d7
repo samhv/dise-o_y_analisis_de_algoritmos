@@ -1,0 +1,9 @@
+public class C {
+
+	public static void main(String[] args) {
+		A a = new A();
+		A b = new A();
+		A c = new A();
+		System.out.println(ObjectSizeFetcher.getObjectSize(new A()));
+	}
+}

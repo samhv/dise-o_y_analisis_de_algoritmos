@@ -1,0 +1,59 @@
+package estructuras;
+
+public class Nodo {
+
+	protected int key;
+	protected int value;
+	protected Nodo left;
+	protected Nodo right;
+	protected Nodo parent;
+
+	public Nodo(Nodo parent, int key, int value) {
+		this.parent = parent;
+		this.key = key;
+		this.value = value;
+		this.left = null;
+		this.right = null;
+	}
+
+	public Nodo getParent() {
+		return parent;
+	}
+
+	public void setParent(Nodo parent) {
+		this.parent = parent;
+	}
+
+	public int getKey() {
+		return key;
+	}
+
+	public void setKey(int key) {
+		this.key = key;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	public Nodo getLeft() {
+		return left;
+	}
+
+	public void setLeft(Nodo left) {
+		this.left = left;
+	}
+
+	public Nodo getRight() {
+		return right;
+	}
+
+	public void setRight(Nodo right) {
+		this.right = right;
+	}
+
+}

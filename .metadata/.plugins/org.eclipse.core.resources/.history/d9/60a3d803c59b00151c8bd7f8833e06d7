@@ -1,0 +1,10 @@
+
+public class A {
+
+	B a;
+
+	public lonf getObjectSize(){
+		
+	}
+	
+}

@@ -7,16 +7,20 @@ public abstract class ITree {
 	protected Nodo root;
 	protected int size;
 
-	public abstract String search(String key);
+	public abstract int search(int key);
 
-	public abstract Nodo insert(String key, String value);
+	public abstract Nodo insert(int key, int value);
 
-	public abstract Nodo delete(String key);
+	public abstract Nodo delete(int key);
 
 	public abstract int size();
 
 	protected enum Posicion {
 		Izquierda, Derecha
+	}
+	
+	public Nodo getRoot(){
+		return root;
 	}
 
 	protected void rotateLeft(Nodo node) {
@@ -40,7 +44,7 @@ public abstract class ITree {
 		node.setParent(greater);
 
 		node.setRight(lesser);
-		
+
 		if (lesser != null)
 			lesser.setParent(node);
 
@@ -92,6 +96,18 @@ public abstract class ITree {
 			root = lesser;
 			lesser.setParent(null);
 		}
+	}
+
+	public void preOrden(Nodo a, int profundidad) {
+		for(int i =0;i < profundidad;i++){
+			System.out.print("-");
+		}
+		System.out.println(a.getValue());
+
+		if (a.getLeft() != null)
+			preOrden(a.getLeft(),profundidad +1); /* Subárbol izquierdo */
+		if (a.getRight()!=null)
+			preOrden(a.getRight(),profundidad +1); /* Subárbol derecho */
 	}
 
 }

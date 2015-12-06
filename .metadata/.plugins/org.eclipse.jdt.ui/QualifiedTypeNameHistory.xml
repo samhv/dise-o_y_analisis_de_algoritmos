@@ -18,4 +18,8 @@
 <fullyQualifiedTypeName name="trees.ITree"/>
 <fullyQualifiedTypeName name="estructuras.NodoAVL"/>
 <fullyQualifiedTypeName name="estructuras.Nodo"/>
+<fullyQualifiedTypeName name="java.lang.instrument.Instrumentation"/>
+<fullyQualifiedTypeName name="test"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="A"/>
 </qualifiedTypeNameHistroy>

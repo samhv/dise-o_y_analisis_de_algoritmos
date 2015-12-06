@@ -1,0 +1,12 @@
+public class C {
+    private int x;
+    private int y;
+	
+
+    public static void main(String [] args) {
+    	A a;
+    	A a;
+    	A a;
+        System.out.println(ObjectSizeFetcher.getObjectSize(new A()));
+    }
+}

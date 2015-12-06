@@ -1,14 +1,14 @@
 package estructuras;
 
 public class Nodo {
-
-	protected String key;
-	protected String value;
+	protected int height = 1;
+	protected int key;
+	protected int value;
 	protected Nodo left;
 	protected Nodo right;
 	protected Nodo parent;
 
-	public Nodo(Nodo parent, String key, String value) {
+	public Nodo(Nodo parent, int key, int value) {
 		this.parent = parent;
 		this.key = key;
 		this.value = value;
@@ -24,19 +24,19 @@ public class Nodo {
 		this.parent = parent;
 	}
 
-	public String getKey() {
+	public int getKey() {
 		return key;
 	}
 
-	public void setKey(String key) {
+	public void setKey(int key) {
 		this.key = key;
 	}
 
-	public String getValue() {
+	public int getValue() {
 		return value;
 	}
 
-	public void setValue(String value) {
+	public void setValue(int value) {
 		this.value = value;
 	}
 
@@ -54,6 +54,47 @@ public class Nodo {
 
 	public void setRight(Nodo right) {
 		this.right = right;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	protected boolean isLeaf() {
+		return ((left == null) && (right == null));
+	}
+
+	public void updateHeight() {
+		int lesserHeight = 0;
+		int greaterHeight = 0;
+		if (left != null) {
+			Nodo lesserAVLNode = left;
+			lesserHeight = lesserAVLNode.height;
+		}
+		if (right != null) {
+			Nodo greaterAVLNode = right;
+			greaterHeight = greaterAVLNode.height;
+		}
+
+		if (lesserHeight > greaterHeight) {
+			height = lesserHeight + 1;
+		} else {
+			height = greaterHeight + 1;
+		}
+	}
+
+	public int getBalanceFactor() {
+		int lesserHeight = 0;
+		int greaterHeight = 0;
+		if (left != null) {
+			Nodo lesserAVLNode = left;
+			lesserHeight = lesserAVLNode.height;
+		}
+		if (right != null) {
+			Nodo greaterAVLNode = right;
+			greaterHeight = greaterAVLNode.height;
+		}
+		return greaterHeight - lesserHeight;
 	}
 
 }

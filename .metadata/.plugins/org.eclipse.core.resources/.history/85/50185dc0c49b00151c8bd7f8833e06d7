@@ -1,0 +1,6 @@
+
+public class A {
+
+	A a;
+	double s = Double.MAX_VALUE;
+}
