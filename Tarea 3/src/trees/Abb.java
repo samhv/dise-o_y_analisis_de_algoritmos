@@ -12,11 +12,11 @@ public class Abb extends ITree {
 
 	public Abb() {
 		this.root = null;
-		this.size = 0;
+		
 	}
 
-	public int size() {
-		return size;
+	public long size() {
+		return size(root);
 	}
 
 	@Override

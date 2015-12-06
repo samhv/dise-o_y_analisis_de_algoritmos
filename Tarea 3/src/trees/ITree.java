@@ -13,7 +13,7 @@ public abstract class ITree {
 
 	public abstract Nodo delete(int key);
 
-	public abstract int size();
+	public abstract long size();
 
 	protected enum Posicion {
 		Izquierda, Derecha
@@ -98,16 +98,16 @@ public abstract class ITree {
 		}
 	}
 
-	public void preOrden(Nodo a, int profundidad) {
-		for(int i =0;i < profundidad;i++){
-			System.out.print("-");
-		}
-		System.out.println(a.getValue());
-
+	public long size(Nodo a) {
+		
+		long size = a.getSize();
+		
 		if (a.getLeft() != null)
-			preOrden(a.getLeft(),profundidad +1); /* Subárbol izquierdo */
+			size += size(a.getLeft()); /* Subárbol izquierdo */
 		if (a.getRight()!=null)
-			preOrden(a.getRight(),profundidad +1); /* Subárbol derecho */
+			size += size(a.getRight()); /* Subárbol derecho */
+		
+		return size;
 	}
 
 }

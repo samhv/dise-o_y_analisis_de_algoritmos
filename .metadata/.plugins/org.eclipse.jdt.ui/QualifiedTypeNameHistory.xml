@@ -16,10 +16,13 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.text.DefaultEditorKit.InsertBreakAction"/>
 <fullyQualifiedTypeName name="trees.ITree"/>
-<fullyQualifiedTypeName name="estructuras.NodoAVL"/>
 <fullyQualifiedTypeName name="estructuras.Nodo"/>
 <fullyQualifiedTypeName name="java.lang.instrument.Instrumentation"/>
 <fullyQualifiedTypeName name="test"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="A"/>
+<fullyQualifiedTypeName name="trees.Abb"/>
+<fullyQualifiedTypeName name="trees.Splay"/>
+<fullyQualifiedTypeName name="trees.Avl"/>
+<fullyQualifiedTypeName name="estructuras.NodoAVL"/>
 </qualifiedTypeNameHistroy>

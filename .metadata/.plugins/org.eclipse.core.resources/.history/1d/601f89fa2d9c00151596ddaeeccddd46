@@ -1,0 +1,15 @@
+package test;
+
+import trees.Abb;
+import trees.Avl;
+import trees.Splay;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		System.out.println(ObjectSizeFetcher.);
+
+	}
+
+}
